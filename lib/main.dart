@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'signup.dart';
+import 'home.dart';
 
 void main() => runApp(new MyApp());
 
@@ -9,7 +10,8 @@ class MyApp extends StatelessWidget {
     return new MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: <String, WidgetBuilder>{
-        '/signup': (BuildContext context) => new SignupPage()
+        '/signup': (BuildContext context) => new SignupPage(),
+        '/classdetails': (BuildContext context) => new Home_Page(),
       },
       home: new MyHomePage(),
     );
@@ -25,6 +27,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+      resizeToAvoidBottomPadding: false,
       body: Column(
         children: <Widget>[
           Container(
@@ -59,7 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       borderSide: BorderSide(color: Colors.green),
                     ),
                   ),
-                  obscureText: true,
+                  obscureText: false,
                 ),
                 SizedBox(
                   height: 5.0,
@@ -104,7 +107,12 @@ class _MyHomePageState extends State<MyHomePage> {
                     color: Colors.green,
                     elevation: 7.0,
                     child: GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => Home_Page()));
+                      },
                       child: Center(
                         child: Text(
                           'LOGIN',

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loginpage/home.dart';
 
 class SignupPage extends StatefulWidget {
   @override
@@ -116,7 +117,12 @@ class _SignupPageState extends State<SignupPage> {
                       color: Colors.green,
                       elevation: 7.0,
                       child: GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Home_Page()));
+                        },
                         child: Center(
                           child: Text(
                             'SIGNUP',
